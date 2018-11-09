@@ -1,7 +1,7 @@
 package com.torr.repository.impl;
 
 import com.torr.domain.Student;
-import com.torr.repository.BaseDao;
+import com.torr.repository.StudentDao;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class StudentDaoImpl implements BaseDao {
+public class StudentDaoImpl implements StudentDao {
     @Resource
     private JdbcTemplate jdbcTemplate;
 
@@ -25,7 +25,7 @@ public class StudentDaoImpl implements BaseDao {
 
     @Override
     public void delete(Student student) {
-        jdbcTemplate.update("DELETE FROM STUDENTS WHERE STUDENTID_=?",student.getStudentId());
+        jdbcTemplate.update("DELETE FROM STUDENTS WHERE STUDENTID_=?", student.getStudentId());
     }
 
     @Override
@@ -46,12 +46,12 @@ public class StudentDaoImpl implements BaseDao {
     public Student findOne(String studentId) {
         Student student;
         try {
-            student=(Student) jdbcTemplate.queryForObject("SELECT * FROM STUDENTS WHERE STUDENTID_=?",
+            student = (Student) jdbcTemplate.queryForObject("SELECT * FROM STUDENTS WHERE STUDENTID_=?",
                     new Object[]{studentId}, new StudentMapper());
-        }catch (EmptyResultDataAccessException e){
-            student=null;
+        } catch (EmptyResultDataAccessException e) {
+            student = null;
         }
-        return  student;
+        return student;
     }
 
     class StudentMapper implements RowMapper {
@@ -59,8 +59,8 @@ public class StudentDaoImpl implements BaseDao {
         @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             Student student = new Student();
-                student.setName(resultSet.getString("NAME_"));
-                student.setStudentId(resultSet.getString("STUDENTID_"));
+            student.setName(resultSet.getString("NAME_"));
+            student.setStudentId(resultSet.getString("STUDENTID_"));
 
             return student;
         }

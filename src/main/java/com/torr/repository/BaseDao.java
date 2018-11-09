@@ -1,13 +1,16 @@
 package com.torr.repository;
 
-import com.torr.domain.Student;
 
 import java.util.List;
 
-public interface BaseDao {
-    Student insert(Student student);
-    void delete(Student student);
-    Student update(Student student);
-    List<Student> findAll();
-    Student findOne(String studentId);
+public interface BaseDao<T> {
+    T insert(T t);
+
+    void delete(T t);
+
+    T update(T t);
+
+    List<T> findAll();
+
+    T findOne(String pk);
 }
