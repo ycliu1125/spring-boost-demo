@@ -1,10 +1,21 @@
+CREATE TABLE Students (
+  studentId_ CHAR(4),
+  name_ VARCHAR (10)
+);
+
+INSERT INTO Students VALUES ('0001', 'Anna');
+INSERT INTO Students VALUES ('0002', 'Damnit');
+INSERT INTO Students VALUES ('0003', 'Charlie');
+INSERT INTO Students VALUES ('0004', 'Bob');
+INSERT INTO Students VALUES ('0005', 'Electric');
+
 CREATE TABLE konosuba (
   card_id_ CHAR(4) PRIMARY KEY ,
   name_ VARCHAR (20),
   hp_ INT,
   atk_ INT,
   rec_ INT,
-  sex_ BIT ,
+  sex_ BOOLEAN,
   race_ VARCHAR
 );
 
