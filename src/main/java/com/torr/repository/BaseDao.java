@@ -4,7 +4,7 @@ import com.torr.domain.Student;
 
 import java.util.List;
 
-public interface StudentDao {
+public interface BaseDao {
     Student insert(Student student);
     void delete(Student student);
     Student update(Student student);
