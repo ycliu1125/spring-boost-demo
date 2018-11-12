@@ -11,7 +11,7 @@ INSERT INTO Students VALUES ('0005', 'Electric');
 
 INSERT INTO FOO VALUES ('0001', 'Anna',11);
 
-CREATE TABLE konosuba (
+/*CREATE TABLE konosuba (
   card_id_ CHAR(4) PRIMARY KEY ,
   name_ VARCHAR (20),
   hp_ INT,
@@ -35,7 +35,7 @@ INSERT INTO konosuba VALUES ('1892', 'Destroyer', 4366, 1545, 114, 1, 'Machina')
 INSERT INTO konosuba VALUES ('1893', 'Luna', 2771, 1463, 522, 0, 'Human');
 INSERT INTO konosuba VALUES ('1894', 'Eris', 2624, 1520, 358, 0, 'God');
 INSERT INTO konosuba VALUES ('1895', 'WinterShogun', 1180, 1793, 371, 1, 'Demon');
-INSERT INTO konosuba VALUES ('1896', 'LizardRunner', 2887, 1281, 168, 1, 'Beast');
+INSERT INTO konosuba VALUES ('1896', 'LizardRunner', 2887, 1281, 168, 1, 'Beast');*/
 
 
 CREATE TABLE ROLES(

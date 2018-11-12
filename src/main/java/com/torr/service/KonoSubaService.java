@@ -10,4 +10,5 @@ public interface KonoSubaService {
     List<KonoSuba> findAll();
     KonoSuba findOne(String cardId);
     KonoSuba findOneByName (String name);
+
 }
