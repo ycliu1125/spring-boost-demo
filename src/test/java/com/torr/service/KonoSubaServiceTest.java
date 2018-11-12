@@ -7,14 +7,16 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class KonoSubaServiceTest {
 
-
-    private KonoSubaServiceImpl konoSubaServiceImpl;
+    @Resource
+    private KonoSubaService konoSubaServiceImpl;
 
     @Test
     public void testKonosuba(){

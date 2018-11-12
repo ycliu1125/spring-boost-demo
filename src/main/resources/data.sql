@@ -9,6 +9,8 @@ INSERT INTO Students VALUES ('0003', 'Charlie');
 INSERT INTO Students VALUES ('0004', 'Bob');
 INSERT INTO Students VALUES ('0005', 'Electric');
 
+INSERT INTO FOO VALUES ('0001', 'Anna',11);
+
 CREATE TABLE konosuba (
   card_id_ CHAR(4) PRIMARY KEY ,
   name_ VARCHAR (20),
