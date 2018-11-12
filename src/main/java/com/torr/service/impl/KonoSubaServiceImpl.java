@@ -3,7 +3,10 @@ package com.torr.service.impl;
 import com.torr.domain.KonoSuba;
 import com.torr.repository.impl.KonoSubaDaoImpl;
 import com.torr.service.KonoSubaService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
