@@ -6,8 +6,11 @@ import com.torr.service.KonoSubaService;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class KonoSubaServiceImpl implements KonoSubaService {
-
+    
+    @Resource
     private KonoSubaDaoImpl konoSubaDaoImpl;
 
     @Override
