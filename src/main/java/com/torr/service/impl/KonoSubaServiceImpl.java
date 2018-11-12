@@ -45,6 +45,7 @@ public class KonoSubaServiceImpl implements KonoSubaService {
         return konoSubaDaoImpl.findOne(cardId);
     }
 
+    @Override
     public KonoSuba findOneByName(String name){
         return konoSubaDaoImpl.findOneByName(name);
     }

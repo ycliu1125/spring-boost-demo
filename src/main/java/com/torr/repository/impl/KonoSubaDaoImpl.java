@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,15 +15,17 @@ import java.util.List;
 @Repository
 public class KonoSubaDaoImpl implements KonoSubaDao {
 
-    @Resource
     private JdbcTemplate jdbcTemplate;
-    //
+    //.execute(SQL) 單單就只是執行
+    //.update(SQL) 回傳的是int 表示有幾筆資料受到影響
 
-    @Override
+
+        @Override
     public KonoSuba insert(KonoSuba konoSuba) {
-        return jdbcTemplate.update("INSERT INTO konosuba(" +
-                "card_id_, name_, hp_, atk_, rec_, sex_, race_)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?)",
+
+            return jdbcTemplate.update("INSERT INTO KONOSUBA(" +
+                        "card_id_, name_, hp_, atk_, rec_, sex_, race_) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?)",
                 konoSuba.getCardId(),
                 konoSuba.getName(),
                 konoSuba.getHp(),
@@ -49,7 +50,6 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
                 konoSuba.getHp(),
                 konoSuba.getAtk(),
                 konoSuba.getRec(),
-
                 konoSuba.isSex(),
                 konoSuba.getRace(),
                 konoSuba.getCardId()) > 0 ? findOne(konoSuba.getCardId()) : null;
@@ -91,20 +91,22 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
 
         return konoSuba;
     }
-}
 
-class KonoSubaMapper implements RowMapper {
+    class KonoSubaMapper implements RowMapper {
 
-    @Override
-    public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-        KonoSuba konoSuba = new KonoSuba();
-        konoSuba.setCardId(resultSet.getString("card_id_"));
-        konoSuba.setName(resultSet.getString("name_"));
-        konoSuba.setHp(resultSet.getInt("hp_"));
-        konoSuba.setAtk(resultSet.getInt("atk_"));
-        konoSuba.setRec(resultSet.getInt("rec_"));
-        konoSuba.setSex(resultSet.getBoolean("sex_"));
-        konoSuba.setRace(resultSet.getString("race_"));
-        return konoSuba;
+        @Override
+        public Object mapRow(ResultSet resultSet, int i) throws SQLException {
+            KonoSuba konoSuba = new KonoSuba();
+            konoSuba.setCardId(resultSet.getString("card_id_"));
+            konoSuba.setName(resultSet.getString("name_"));
+            konoSuba.setHp(resultSet.getInt("hp_"));
+            konoSuba.setAtk(resultSet.getInt("atk_"));
+            konoSuba.setRec(resultSet.getInt("rec_"));
+            konoSuba.setSex(resultSet.getBoolean("sex_"));
+            konoSuba.setRace(resultSet.getString("race_"));
+            return konoSuba;
+        }
     }
 }
+
+
