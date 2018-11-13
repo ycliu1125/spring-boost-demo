@@ -45,7 +45,17 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public Role findOne(String Career) {
+    public Role findOne(String ID) {
+        Role role;
+        try {
+            role = (Role) jdbcTemplate.queryForObject("SELECT * FROM ROLES WHERE ID_=?",
+                    new Object[]{ID}, new RolesMapper());
+        } catch (EmptyResultDataAccessException e) {
+            role = null;
+        }
+        return role;
+    }
+    public Role findOneByCareer(String Career) {
         Role role;
         try {
             role = (Role) jdbcTemplate.queryForObject("SELECT * FROM ROLES WHERE CAREER_=?",
@@ -55,6 +65,7 @@ public class RoleDaoImpl implements RoleDao {
         }
         return role;
     }
+
 
 
     public class RolesMapper implements RowMapper{
