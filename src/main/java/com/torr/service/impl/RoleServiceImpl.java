@@ -1,7 +1,6 @@
 package com.torr.service.impl;
 
 import com.torr.domain.Role;
-import com.torr.domain.Student;
 import com.torr.repository.RoleDao;
 import com.torr.service.RoleService;
 import org.springframework.stereotype.Service;
@@ -38,8 +37,15 @@ public class RoleServiceImpl implements RoleService {
             return roleDao.findAll();
         }
 
+
+
     @Override
     public Role findOne(String Id) {
         return roleDao.findOne(Id);
+    }
+
+    @Override
+    public Role findOneByCareer(String career) {
+        return roleDao.findOneByCareer(career);
     }
 }
