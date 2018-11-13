@@ -1,7 +1,6 @@
 package com.torr.service.impl;
 
 import com.torr.domain.KonoSuba;
-import com.torr.repository.KonoSubaDao;
 import com.torr.repository.KonoSubaRepository;
 import com.torr.service.KonoSubaService;
 import org.springframework.stereotype.Service;
@@ -41,6 +40,7 @@ public class KonoSubaServiceImpl implements KonoSubaService {
             return null;
         }
     }
+
 
     @Override
     public List<KonoSuba> findAll() {

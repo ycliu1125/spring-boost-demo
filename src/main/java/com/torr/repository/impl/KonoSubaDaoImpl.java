@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -15,12 +16,13 @@ import java.util.List;
 @Repository
 public class KonoSubaDaoImpl implements KonoSubaDao {
 
+    @Resource
     private JdbcTemplate jdbcTemplate;
     //.execute(SQL) 單單就只是執行
     //.update(SQL) 回傳的是int 表示有幾筆資料受到影響
 
 
-        @Override
+    @Override
     public KonoSuba insert(KonoSuba konoSuba) {
 
             return jdbcTemplate.update("INSERT INTO KONOSUBA(" +
