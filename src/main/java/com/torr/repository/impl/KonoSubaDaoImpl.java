@@ -33,7 +33,7 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
                 konoSuba.getHp(),
                 konoSuba.getAtk(),
                 konoSuba.getRec(),
-                konoSuba.isSex(),
+                konoSuba.getSex(),
                 konoSuba.getRace()) > 0 ? findOne(konoSuba.getCardId()) : null;
     }
 
@@ -52,7 +52,7 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
                 konoSuba.getHp(),
                 konoSuba.getAtk(),
                 konoSuba.getRec(),
-                konoSuba.isSex(),
+                konoSuba.getSex(),
                 konoSuba.getRace(),
                 konoSuba.getCardId()) > 0 ? findOne(konoSuba.getCardId()) : null;
     }
