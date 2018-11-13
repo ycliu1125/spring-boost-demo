@@ -3,9 +3,11 @@ package com.torr.service.impl;
 import com.torr.domain.KonoSuba;
 import com.torr.repository.KonoSubaRepository;
 import com.torr.service.KonoSubaService;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -18,12 +20,7 @@ public class KonoSubaServiceImpl implements KonoSubaService {
 
     @Override
     public KonoSuba insert(KonoSuba konoSuba) {
-        if (checkData(konoSuba))
-            return konoSubaRepository.save(konoSuba);
-        else {
-            System.out.println("Data is wrong!!");
-            return null;
-        }
+        return konoSubaRepository.save(konoSuba);
     }
 
     @Override
@@ -33,12 +30,7 @@ public class KonoSubaServiceImpl implements KonoSubaService {
 
     @Override
     public KonoSuba update(KonoSuba konoSuba) {
-        if (checkData(konoSuba))
-            return konoSubaRepository.save(konoSuba);
-        else {
-            System.out.println("Data is wrong!!");
-            return null;
-        }
+        return konoSubaRepository.save(konoSuba);
     }
 
 
@@ -49,7 +41,13 @@ public class KonoSubaServiceImpl implements KonoSubaService {
 
     @Override
     public KonoSuba findOne(String cardId) {
-        return konoSubaRepository.getOne(cardId);
+        KonoSuba target = new KonoSuba();
+        try {
+            target = konoSubaRepository.getOne(cardId);
+        } catch (JpaObjectRetrievalFailureException | EntityNotFoundException e) {
+            target = null;
+        }
+        return target;
     }
 
     @Override
@@ -57,11 +55,9 @@ public class KonoSubaServiceImpl implements KonoSubaService {
         return konoSubaRepository.findByName(name);
     }
 
+    @Override
     public List<KonoSuba> findByNameContains(String nameContains) {
         return konoSubaRepository.findByNameContains(nameContains);
     }
 
-    private Boolean checkData(KonoSuba konoSuba) {
-        return true;
-    }
 }

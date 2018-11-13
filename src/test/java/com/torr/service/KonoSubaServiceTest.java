@@ -1,6 +1,7 @@
 package com.torr.service;
 
 import com.torr.domain.KonoSuba;
+import com.torr.repository.KonoSubaRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,7 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +21,11 @@ public class KonoSubaServiceTest {
 
     @Resource
     private KonoSubaService konoSubaService;
+    @Resource
+    private KonoSubaRepository konoSubaRepository;
 
     @Test
-    public void testKonosuba(){
+    public void testKonosuba() {
         //新增
         KonoSuba card1 = new KonoSuba();
         card1.setCardId("2020");
@@ -39,7 +41,7 @@ public class KonoSubaServiceTest {
         System.err.println(card1);
 
         //查詢By Id
-        KonoSuba target =konoSubaService.findOne("2020");
+        KonoSuba target = konoSubaService.findOne("2020");
         assertThat(target).isNotNull();
         System.err.println(target);
 
@@ -56,13 +58,27 @@ public class KonoSubaServiceTest {
         System.err.println(target3);
 
         //模糊查詢
-        //List<KonoSuba> cards = new ArrayList<>();
-
+        List<KonoSuba> cards = new ArrayList<>();
+        cards = konoSubaService.findByNameContains("y");
+        cards.forEach(System.err::println);
 
         //刪除
         konoSubaService.delete(target3);
         KonoSuba target4 = konoSubaService.findOne("2020");
         assertThat(target4).isNull();
         System.err.println(target4);
+    }
+
+    /**
+     * 測試 Table 的各種關聯
+     * 注意在獲取從屬關係(自我關聯)時 要設計取到一個終值
+     * 否則JPA會將下一個關聯的屬性重複載入 導致記憶體爆炸(OverStackFlow)
+     */
+    @Test
+    public void testKonosubaRelation() {
+        KonoSuba konoSuba = konoSubaRepository.findByName("Aqua");
+        System.err.println("Aqua(1882)第一個子項目的ID: " + konoSuba.getKonoSubas().get(0).getCardId());//OverStackFlow
+        konoSuba.getKonoSubas().forEach(card -> System.err.println(" 子: " + card.getName() + " 父: " + card.getParent().getName()));
+        konoSuba.getSkills().forEach(System.err::println);//關聯表中 Aqua 擁有的技能都列出來
     }
 }
