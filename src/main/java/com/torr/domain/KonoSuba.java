@@ -1,10 +1,12 @@
 package com.torr.domain;
 
 import lombok.Data;
+import org.dom4j.tree.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Data
@@ -15,13 +17,13 @@ public class KonoSuba {
     @Column(name = "name_")
     private String name;
     @Column(name = "hp_")
-    private int hp;
+    private Integer hp;
     @Column(name = "atk_")
-    private int atk;
+    private Integer atk;
     @Column(name = "rec_")
-    private int rec;
+    private Integer rec;
     @Column(name = "sex_")
-    private boolean sex;
+    private Boolean sex;
     @Column(name = "race_")
     private String race;
 
@@ -32,7 +34,7 @@ public class KonoSuba {
                 this.getHp()+","+
                 this.getAtk()+","+
                 this.getRec()+","+
-                this.isSex()+","+
+                this.getSex()+","+
                 this.getRace();
         return detail;
     }
