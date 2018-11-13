@@ -3,14 +3,12 @@ package com.torr.service.impl;
 import com.torr.domain.Role;
 import com.torr.repository.RoleDao;
 import com.torr.service.RoleService;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
 import java.util.List;
 
 
-@Service
 @Transactional
 public class RoleServiceImpl implements RoleService {
 
@@ -33,10 +31,9 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-        public List<Role> findAll() {
-            return roleDao.findAll();
-        }
-
+    public List<Role> findAll() {
+        return roleDao.findAll();
+    }
 
 
     @Override

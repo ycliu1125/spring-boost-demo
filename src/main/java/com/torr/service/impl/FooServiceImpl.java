@@ -1,7 +1,8 @@
-package com.torr.service;
+package com.torr.service.impl;
 
 import com.torr.domain.Foo;
 import com.torr.repository.FooRepository;
+import com.torr.service.FooService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,15 +1,15 @@
 package com.torr.domain;
 
 import lombok.Data;
-import org.dom4j.tree.AbstractEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Data
+@Table(name = "konosuba")
 public class KonoSuba {
     @Id
     @Column(name = "card_id_")
@@ -28,13 +28,13 @@ public class KonoSuba {
     private String race;
 
     @Override
-    public String toString(){
-        String detail = "Card detail: "+this.getCardId()+","+
-                this.getName()+","+
-                this.getHp()+","+
-                this.getAtk()+","+
-                this.getRec()+","+
-                this.getSex()+","+
+    public String toString() {
+        String detail = "Card detail: " + this.getCardId() + "," +
+                this.getName() + "," +
+                this.getHp() + "," +
+                this.getAtk() + "," +
+                this.getRec() + "," +
+                this.getSex() + "," +
                 this.getRace();
         return detail;
     }

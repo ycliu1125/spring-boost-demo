@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 @Transactional
 public class KonoSubaServiceImpl implements KonoSubaService {
-    
+
     @Resource
     private KonoSubaRepository konoSubaRepository;
 
@@ -20,7 +20,7 @@ public class KonoSubaServiceImpl implements KonoSubaService {
     public KonoSuba insert(KonoSuba konoSuba) {
         if (checkData(konoSuba))
             return konoSubaRepository.save(konoSuba);
-        else{
+        else {
             System.out.println("Data is wrong!!");
             return null;
         }
@@ -53,15 +53,15 @@ public class KonoSubaServiceImpl implements KonoSubaService {
     }
 
     @Override
-    public KonoSuba findOneByName(String name){
+    public KonoSuba findOneByName(String name) {
         return konoSubaRepository.findByName(name);
     }
 
-    public List<KonoSuba> findByNameContains(String nameContains){
+    public List<KonoSuba> findByNameContains(String nameContains) {
         return konoSubaRepository.findByNameContains(nameContains);
     }
 
-    private Boolean checkData(KonoSuba konoSuba){
+    private Boolean checkData(KonoSuba konoSuba) {
         return true;
     }
 }
