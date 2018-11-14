@@ -94,7 +94,7 @@ public class KonoSubaServiceTest {
         card1 = konoSubaDaoService.insert(card1);
         assertThat(card1).isNotNull();
         System.err.println(card1);
-        //新增第2筆看看
+        //新增2筆
         KonoSuba card2 = new KonoSuba();
         card2.setCardId("2021");
         card2.setName("Ace");
@@ -107,8 +107,8 @@ public class KonoSubaServiceTest {
         assertThat(card2).isNotNull();
         System.err.println(card2);
         //自定義查詢
-        List<KonoSuba> target5 = konoSubaDaoService.findBy(7, "Human");
-        assertThat(target5).isNotEmpty();
+
+        List<KonoSuba> target5 = konoSubaDaoService.findBy(4, ">", "2000");
         target5.forEach(cards -> System.err.println(cards));
     }
 

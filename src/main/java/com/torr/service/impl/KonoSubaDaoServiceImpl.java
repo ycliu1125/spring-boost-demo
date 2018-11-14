@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,9 @@ public class KonoSubaDaoServiceImpl implements KonoSubaDaoService {
     @Resource
     KonoSubaDao konoSubaDao;
 
+
     @Override
-    public List<KonoSuba> findBy(int byWhat, String value) {
+    public List<KonoSuba> findBy(int byWhat, String logic, String value) {
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "card_id_");
         map.put(2, "name_");
@@ -28,7 +30,16 @@ public class KonoSubaDaoServiceImpl implements KonoSubaDaoService {
         map.put(5, "rec_");
         map.put(6, "sex_");
         map.put(7, "race_");
-        return konoSubaDao.findBy(map.get(byWhat), value);
+        List<KonoSuba> res = new ArrayList<>();
+        if (konoSubaDao.findBy(map.get(byWhat), logic, value) != null)
+            res = konoSubaDao.findBy(map.get(byWhat), logic, value);
+        try {
+            if (res.size() == 0)
+                throw new DataNotFoundException();
+        } catch (Exception e) {
+            System.err.println("Data not found!");
+        }
+        return res;
     }
 
     @Override
@@ -61,4 +72,6 @@ public class KonoSubaDaoServiceImpl implements KonoSubaDaoService {
         return null;
     }
 
+    private class DataNotFoundException extends Exception {
+    }
 }

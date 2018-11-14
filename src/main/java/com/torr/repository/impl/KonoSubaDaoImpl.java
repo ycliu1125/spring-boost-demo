@@ -93,11 +93,11 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
     }
 
     @Override
-    public List<KonoSuba> findBy(String byWhat, String value) {
+    public List<KonoSuba> findBy(String byWhat, String logic, String value) {
         List<KonoSuba> konoSuba = jdbcTemplate.query("SELECT card_id_, name_, hp_, atk_, rec_, sex_, race_ " +
-                "FROM konosuba WHERE " + byWhat + " = ?", new Object[]{value}, new KonoSubaMapper());
+                "FROM konosuba WHERE " + byWhat + logic + " ?", new Object[]{value}, new KonoSubaMapper());
 
-        return konoSuba;
+        return konoSuba.size() == 0 ? null : konoSuba;
     }
 
 

@@ -13,5 +13,5 @@ public interface KonoSubaDao extends BaseDao<KonoSuba> {
      *
      * @return KonoSuba
      */
-    List<KonoSuba> findBy(String byWhat, String value);
+    List<KonoSuba> findBy(String byWhat, String logic, String value);
 }
