@@ -3,6 +3,7 @@ package com.torr.service.impl;
 import com.torr.domain.KonoSuba;
 import com.torr.repository.KonoSubaDao;
 import com.torr.service.KonoSubaDaoService;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -31,8 +32,13 @@ public class KonoSubaDaoServiceImpl implements KonoSubaDaoService {
         map.put(6, "sex_");
         map.put(7, "race_");
         List<KonoSuba> res = new ArrayList<>();
-        if (konoSubaDao.findBy(map.get(byWhat), logic, value) != null)
-            res = konoSubaDao.findBy(map.get(byWhat), logic, value);
+        try {
+            if (konoSubaDao.findBy(map.get(byWhat), logic, value) != null)
+                res = konoSubaDao.findBy(map.get(byWhat), logic, value);
+        } catch (BadSqlGrammarException ex) {
+            System.err.println("Bad SQL Grammar");
+        }
+
         try {
             if (res.size() == 0)
                 throw new DataNotFoundException();
