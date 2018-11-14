@@ -9,7 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,12 +18,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Transactional
 public class KonoSubaServiceTest {
 
+    /*@Resource
+    private KonoSubaService konoSubaService;*/
     @Resource
-    private KonoSubaService konoSubaService;
+    private KonoSubaDaoService konoSubaDaoService;
     @Resource
     private KonoSubaRepository konoSubaRepository;
 
-    @Test
+    /*@Test
     public void testKonosuba() {
         //新增
         KonoSuba card1 = new KonoSuba();
@@ -67,6 +68,48 @@ public class KonoSubaServiceTest {
         KonoSuba target4 = konoSubaService.findOne("2020");
         assertThat(target4).isNull();
         System.err.println(target4);
+    }*/
+
+    /**
+     * 利用Map 操作SQL 自定義查詢欄位、值
+     * 1:card_id_
+     * 2:name_
+     * 3:hp_
+     * 4:atk_
+     * 5:rec_
+     * 6:sex_
+     * 7:race_
+     */
+    @Test
+    public void testMapFinding() {
+        //新增
+        KonoSuba card1 = new KonoSuba();
+        card1.setCardId("2020");
+        card1.setName("Alice");
+        card1.setHp(3865);
+        card1.setAtk(2487);
+        card1.setRec(655);
+        card1.setSex(false);
+        card1.setRace("Human");
+        card1 = konoSubaDaoService.insert(card1);
+        assertThat(card1).isNotNull();
+        System.err.println(card1);
+        //新增第2筆看看
+        KonoSuba card2 = new KonoSuba();
+        card2.setCardId("2021");
+        card2.setName("Ace");
+        card2.setHp(3750);
+        card2.setAtk(2499);
+        card2.setRec(600);
+        card2.setSex(Boolean.TRUE);
+        card2.setRace("Human");
+        card2 = konoSubaDaoService.insert(card2);
+        assertThat(card2).isNotNull();
+        System.err.println(card2);
+        //自定義查詢
+        List<KonoSuba> target5 = konoSubaDaoService.findBy(7, "Human");
+        assertThat(target5).isNotEmpty();
+        target5.forEach(cards -> System.err.println(cards));
     }
 
     /**

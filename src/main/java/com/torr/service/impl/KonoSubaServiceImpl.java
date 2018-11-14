@@ -41,7 +41,7 @@ public class KonoSubaServiceImpl implements KonoSubaService {
 
     @Override
     public KonoSuba findOne(String cardId) {
-        KonoSuba target = new KonoSuba();
+        KonoSuba target;
         try {
             target = konoSubaRepository.getOne(cardId);
         } catch (JpaObjectRetrievalFailureException | EntityNotFoundException e) {
@@ -59,5 +59,6 @@ public class KonoSubaServiceImpl implements KonoSubaService {
     public List<KonoSuba> findByNameContains(String nameContains) {
         return konoSubaRepository.findByNameContains(nameContains);
     }
+
 
 }

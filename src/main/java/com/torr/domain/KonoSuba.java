@@ -88,4 +88,5 @@ public class KonoSuba {
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<KonoSuba> konoSubas;
+
 }

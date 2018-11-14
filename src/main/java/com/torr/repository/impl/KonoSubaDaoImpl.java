@@ -25,7 +25,7 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
     @Override
     public KonoSuba insert(KonoSuba konoSuba) {
 
-            return jdbcTemplate.update("INSERT INTO KONOSUBA(" +
+        return jdbcTemplate.update("INSERT INTO KONOSUBA(" +
                         "card_id_, name_, hp_, atk_, rec_, sex_, race_) " +
                         "VALUES (?, ?, ?, ?, ?, ?, ?)",
                 konoSuba.getCardId(),
@@ -46,8 +46,8 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
     @Override
     public KonoSuba update(KonoSuba konoSuba) {
         return jdbcTemplate.update("UPDATE konosuba " +
-                "SET name_ = ?,hp_ = ?, atk_ = ?, rec_ = ?, sex_ = ?, race_ = ?" +
-                "WHERE card_id_ =?",
+                        "SET name_ = ?,hp_ = ?, atk_ = ?, rec_ = ?, sex_ = ?, race_ = ?" +
+                        "WHERE card_id_ =?",
                 konoSuba.getName(),
                 konoSuba.getHp(),
                 konoSuba.getAtk(),
@@ -70,12 +70,11 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
         try {
             konoSuba = (KonoSuba) jdbcTemplate.queryForObject(
                     "SELECT card_id_, name_, hp_, atk_, rec_, sex_, race_ " +
-                        "FROM konosuba WHERE card_id_ = ?",new Object[]{cardId},
-                        new KonoSubaMapper());
+                            "FROM konosuba WHERE card_id_ = ?", new Object[]{cardId},
+                    new KonoSubaMapper());
         } catch (EmptyResultDataAccessException e) {
             konoSuba = null;
         }
-
         return konoSuba;
     }
 
@@ -85,14 +84,22 @@ public class KonoSubaDaoImpl implements KonoSubaDao {
         try {
             konoSuba = (KonoSuba) jdbcTemplate.queryForObject(
                     "SELECT card_id_, name_, hp_, atk_, rec_, sex_, race_ " +
-                        "FROM konosuba WHERE name_ = ?",new Object[]{name},
-                        new KonoSubaMapper());
+                            "FROM konosuba WHERE name_ = ?", new Object[]{name},
+                    new KonoSubaMapper());
         } catch (EmptyResultDataAccessException e) {
             konoSuba = null;
         }
+        return konoSuba;
+    }
+
+    @Override
+    public List<KonoSuba> findBy(String byWhat, String value) {
+        List<KonoSuba> konoSuba = jdbcTemplate.query("SELECT card_id_, name_, hp_, atk_, rec_, sex_, race_ " +
+                "FROM konosuba WHERE " + byWhat + " = ?", new Object[]{value}, new KonoSubaMapper());
 
         return konoSuba;
     }
+
 
     class KonoSubaMapper implements RowMapper {
 
