@@ -21,14 +21,17 @@ public class RoleServiceTest {
     public void roleTest(){
         //新增
         Role role=new Role();
+        role.setId("001");
         role.setName("Arthur");
         role.setAttackDamage(99999);
-        role.setHealthPoints(999999999);
-        role.setCareer_("emperor");
+        role.setHealthPoints(9999999);
+        role.setCareer("emperor");
         role = roleService.insert(role);
         assertThat(role).isNotNull();
         System.err.println(role);
 
+
+        /*
         //查詢
         Role query=roleService.findOne("adviser");
         assertThat(query).isNotNull();
@@ -44,7 +47,7 @@ public class RoleServiceTest {
         assertThat(ret).isNull();
         //find all
         assertThat(roleService.findAll()).hasSize(5);
-
+*/
 
     }
 }

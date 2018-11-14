@@ -11,5 +11,5 @@ public class Role {
     private String name;
     private int healthPoints;
     private int attackDamage;
-    private String career_;
+    private String career;
 }

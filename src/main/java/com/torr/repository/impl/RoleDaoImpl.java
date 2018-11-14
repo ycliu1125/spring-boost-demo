@@ -8,18 +8,21 @@ import com.torr.repository.RoleDao;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class RoleDaoImpl implements RoleDao {
-
+    @Resource
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public Role insert(Role role) {
-        return jdbcTemplate.update("INSERT INTO ROLES(NAME_,ATK_,HP_,CAREER_) VALUES(?,?,?,?)", role.getName(), role.getAttackDamage(),role.getHealthPoints(),role.getCareer_()) > 0
+        return jdbcTemplate.update("INSERT INTO ROLES(NAME_,ATK_,HP_,CAREER_) VALUES(?,?,?,?)", role.getName(), role.getAttackDamage(),role.getHealthPoints(),role.getCareer()) > 0
                 ? findOne(role.getId()) : null;
     }
 
@@ -30,10 +33,11 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public Role update(Role role) {
-        return jdbcTemplate.update("UPDATE ROLES" +
-                "SET CAREER_=?" +
-                "WHERE NAME_=?", role.getCareer_(),role.getName()) > 0
+        return jdbcTemplate.update("UPDATE ROLES " +
+                "SET CAREER_=? " +
+                "WHERE NAME_=? ", role.getCareer(),role.getName()) > 0
                 ? findOne(role.getId()) : null;
+
     }
 
 
@@ -76,7 +80,7 @@ public class RoleDaoImpl implements RoleDao {
             role.setName(resultSet.getString("NAME_"));
             role.setAttackDamage(resultSet.getInt("ATK_"));
             role.setHealthPoints(resultSet.getInt("HP_"));
-            role.setCareer_(resultSet.getString("CAREER_"));
+            role.setCareer(resultSet.getString("CAREER_"));
 
             return role;
         }
