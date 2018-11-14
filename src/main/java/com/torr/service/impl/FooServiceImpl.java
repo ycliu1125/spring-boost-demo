@@ -7,12 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 @Transactional
 public class FooServiceImpl implements FooService {
     @Resource
     private FooRepository repository;
+
     @Override
     public Foo findOne(String id) {
         return repository.getOne(id);
@@ -21,5 +23,10 @@ public class FooServiceImpl implements FooService {
     @Override
     public Foo findByName(String name) {
         return repository.findByName(name);
+    }
+
+    @Override
+    public List<Foo> findAll() {
+        return repository.findAll();
     }
 }

@@ -1,5 +1,6 @@
 package com.torr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -47,6 +48,7 @@ public class Foo {
     /**
      * 反向關聯子項目
      */
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<Foo> foos;
 
