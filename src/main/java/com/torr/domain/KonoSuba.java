@@ -90,4 +90,6 @@ public class KonoSuba {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<KonoSuba> konoSubas;
 
+    @Column(name = "head_picture_")
+    private String headPicLink;
 }

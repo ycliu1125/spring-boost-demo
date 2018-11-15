@@ -1,5 +1,6 @@
 package com.torr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class KonoSubaSkill {
      * 誰擁有這項技能
      * 建立外部表格來達到 ManyToMany 的參考
      */
+    @JsonIgnore
     @ManyToMany //ManyToMany的時機:當欄位的值可能有不只一個的時候
     @JoinTable(
             name = "skill_card_",

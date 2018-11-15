@@ -4,148 +4,26 @@
     <meta charset="UTF-8">
     <title>美好世界合作系列卡片</title>
     <script src="/js/jquery.js"></script>
-    <style>
-        .card {
-            display: flex;
-        }
-
-        .table {
-            text-align: left;
-            width: 800px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/konosuba.css">
 
 </head>
 <body>
+<button id="click">click</button>
 <div class="container">
     <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/8/89/1882i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1882" class="table">Aqua</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/9/96/1883i.png/revision/latest/scale-to-width-down/150?cb=20181003164604&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1883" class="table">Magumin</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/b/b8//1884i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1884" class="table">Kazuma</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/4/46/1885i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1885" class="table">Darkness</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/d/d0/1886i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1886" class="table">Wiz</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/7/77/1887i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1887" class="table">Kyouya</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/4/46/1888i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1888" class="table">Yunyun</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/e/e3/1889i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1889" class="table">Chris</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/8/84/1890i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1890" class="table">Vanir</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/1/17/1891i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1891" class="table">Beldia</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/b/b1/1892i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1892" class="table">Destroyer</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/2/2c/1893i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1893" class="table">Luna</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/9/9d/1894i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1894" class="table">Eris</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/e/e3/1895i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1895" class="table">WinterShogun</table>
-        </div>
-    </div>
-    <div class="card">
-        <div class="headPicture">
-            <img src="https://vignette.wikia.nocookie.net/tos/images/d/d9/1896i.png/revision/latest/scale-to-width-down/150?cb=20181003164602&path-prefix=zh">
-        </div>
-        <div class="detail">
-            <table border="1px solid black" id="1896" class="table">LizardRunner</table>
-        </div>
     </div>
 </div>
-
+<!--用JSON 讀取資料 並建立表格-->
 <script>
     $(function () {
         $.getJSON('/rest/card', function (data) {
             console.log(data);
             data.forEach(function (value) {
+
+                let imgid = '#' + value.name;
+                $('.card').append(`<div class="headPicture"><img id="${value.name}"></div><div class="detail"><table border ="1" id="${value.cardId}" class="table"></table></div>`);
+                $(imgid).attr("src", `${value.headPicLink}`);
+
                 let tableId = '#' + value.cardId;
                 let parent = '', sex = '';
                 if (value.parent) {
@@ -162,5 +40,21 @@
         });
     });
 </script>
+<!--用jQuery改CSS-->
+<script>
+    $("#click").click(function () {
+        $("td:nth-child(1)").css("color", "tomato");
+        $("td:nth-child(2)").css("font-family", "Cooper Black");
+        $("td:nth-child(3)").css("font-size", "2px");
+        $("td:nth-child(4)").css("background-color", "purple");
+        $("td:nth-child(5)").text('');
+        $("td:nth-child(6)").css("width", "180px");
+
+        setInterval(function () {
+            $("td:nth-child(7)").toggleClass("change")
+        }, 1000);
+    });
+</script>
+
 </body>
 </html>
