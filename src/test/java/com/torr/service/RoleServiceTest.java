@@ -21,7 +21,7 @@ public class RoleServiceTest {
     public void roleTest(){
         //新增
         Role role=new Role();
-        role.setId("001");
+        role.setId("10");
         role.setName("Arthur");
         role.setAttackDamage(99999);
         role.setHealthPoints(9999999);
@@ -31,23 +31,26 @@ public class RoleServiceTest {
         System.err.println(role);
 
 
-        /*
+
         //查詢
-        Role query=roleService.findOne("adviser");
+        Role query=roleService.findOne("10");
         assertThat(query).isNotNull();
         System.err.println(query);
+
         //修改
         query.setName("無名氏");
         Role ret=roleService.update(query);
         assertThat(ret).isNotNull();
         System.err.println(ret);
+
         //刪除
         roleService.delete(ret);
-        ret=roleService.findOne("0007");
+        ret=roleService.findOne("10");
         assertThat(ret).isNull();
+
         //find all
-        assertThat(roleService.findAll()).hasSize(5);
-*/
+        assertThat(roleService.findAll()).hasSize(9);
+
 
     }
 }

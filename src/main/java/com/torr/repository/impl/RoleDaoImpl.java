@@ -1,5 +1,8 @@
 package com.torr.repository.impl;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
+import com.torr.domain.Role;
+import com.torr.repository.RoleDao;
 import com.torr.domain.Role;
 import com.torr.repository.RoleDao;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -19,9 +22,7 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public Role insert(Role role) {
-        int i = jdbcTemplate.update("INSERT INTO ROLES(ID_,NAME_,ATK_,HP_,CAREER_) VALUES(?,?,?,?,?)", role.getId(), role.getName(), role.getAttackDamage(), role.getHealthPoints(), role.getCareer());
-        Role test = findOne(role.getId());
-        return i > 0
+        return jdbcTemplate.update("INSERT INTO ROLES(ID_,NAME_,ATK_,HP_,CAREER_) VALUES(?,?,?,?,?)", role.getId(),role.getName(), role.getAttackDamage(),role.getHealthPoints(),role.getCareer()) > 0
                 ? findOne(role.getId()) : null;
     }
 
@@ -34,10 +35,11 @@ public class RoleDaoImpl implements RoleDao {
     public Role update(Role role) {
         return jdbcTemplate.update("UPDATE ROLES " +
                 "SET CAREER_=? " +
-                "WHERE NAME_=? ", role.getCareer(), role.getName()) > 0
+                "WHERE ID_=? ", role.getCareer(),role.getId()) > 0
                 ? findOne(role.getId()) : null;
 
     }
+
 
 
     @Override
@@ -57,7 +59,6 @@ public class RoleDaoImpl implements RoleDao {
         }
         return role;
     }
-
     public Role findOneByCareer(String Career) {
         Role role;
         try {
@@ -70,7 +71,8 @@ public class RoleDaoImpl implements RoleDao {
     }
 
 
-    public class RolesMapper implements RowMapper {
+
+    public class RolesMapper implements RowMapper{
         @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             Role role = new Role();
