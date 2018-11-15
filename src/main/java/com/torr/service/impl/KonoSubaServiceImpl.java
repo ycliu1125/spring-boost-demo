@@ -1,6 +1,7 @@
 package com.torr.service.impl;
 
 import com.torr.domain.KonoSuba;
+import com.torr.domain.KonoSubaSkill;
 import com.torr.repository.KonoSubaRepository;
 import com.torr.service.KonoSubaService;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
@@ -60,5 +61,9 @@ public class KonoSubaServiceImpl implements KonoSubaService {
         return konoSubaRepository.findByNameContains(nameContains);
     }
 
+    @Override
+    public List<KonoSuba> findBySkill(KonoSubaSkill skill) {
+        return konoSubaRepository.findBySkill(skill);
+    }
 
 }

@@ -61,6 +61,11 @@ INSERT INTO card_skill_ VALUES ('1882', '002');
 INSERT INTO card_skill_ VALUES ('1882', '003');
 INSERT INTO card_skill_ VALUES ('1882', '004');
 
+INSERT INTO skill_card_ VALUES ('001', '1884');
+INSERT INTO skill_card_ VALUES ('001', '1887');
+INSERT INTO skill_card_ VALUES ('001', '1890');
+INSERT INTO skill_card_ VALUES ('001', '1896');
+
 CREATE TABLE ROLES (
   id_     VARCHAR(20),
   name_   VARCHAR(255) NOT NULL,
