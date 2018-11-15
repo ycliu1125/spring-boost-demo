@@ -1,5 +1,6 @@
 package com.torr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -62,12 +63,11 @@ public class KonoSuba {
     @ManyToOne
     @JoinColumn(name = "skill_id_")
     private KonoSubaSkill skill;
+
     /**
      * 建立外部表格來達到 ManyToMany 的參考
-     * 一個角色可能擁有多種技能
-     * 一種技能也可能有多個角色擁有
      */
-    @ManyToMany
+    @ManyToMany //ManyToMany的時機:當欄位的值可能有不只一個的時候
     @JoinTable(
             name = "card_skill_",
             joinColumns = {@JoinColumn(name = "card_id_")},
@@ -86,6 +86,7 @@ public class KonoSuba {
     /**
      * 反向關聯子項目
      */
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     private List<KonoSuba> konoSubas;
 

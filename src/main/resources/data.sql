@@ -40,36 +40,21 @@ INSERT INTO konosubaskill VALUES ('002', 'Flood');
 INSERT INTO konosubaskill VALUES ('003', 'Explosion');
 INSERT INTO konosubaskill VALUES ('004', 'GetHurt');
 
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1882', 'Aqua', 3237, 1567, 427, FALSE, 'God', '002', NULL);
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1883', 'Megumin', 2356, 1914, 483, FALSE, 'Human', '003', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1884', 'Kazuma', 3059, 1433, 454, TRUE, 'Human', '001', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1885', 'Darkness', 4297, 872, 484, FALSE, 'Human', '004', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1886', 'Wiz', 2591, 1669, 450, 0, 'Human', '003', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1887', 'Kyouya', 2692, 1558, 486, TRUE, 'Human', '001', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1888', 'Yunyun', 2710, 1542, 483, FALSE, 'Human', '003', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1889', 'Chris', 2914, 1352, 537, FALSE, 'Human', '002', '1882');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1890', 'Vanir', 1803, 2187, 445, TRUE, 'Demon', '001', NULL);
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1891', 'Beldia', 1608, 2425, 378, TRUE, 'Demon', '004', '1890');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1892', 'Destroyer', 4366, 1545, 114, TRUE, 'Machina', '003', '1890');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1893', 'Luna', 2771, 1463, 522, FALSE, 'Human', '004', '1890');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1894', 'Eris', 2624, 1520, 358, FALSE, 'God', '002', '1890');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1895', 'WinterShogun', 1180, 1793, 371, TRUE, 'Demon', '002', '1890');
-INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)
-VALUES ('1896', 'LizardRunner', 2887, 1281, 168, TRUE, 'Beast', '001', '1890');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1882', 'Aqua', 3237, 1567, 427, FALSE, 'God', '002', NULL);
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1883', 'Megumin', 2356, 1914, 483, FALSE, 'Human', '003', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1884', 'Kazuma', 3059, 1433, 454, TRUE, 'Human', '001', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1885', 'Darkness', 4297, 872, 484, FALSE, 'Human', '004', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1886', 'Wiz', 2591, 1669, 450, 0, 'Human', '003', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1887', 'Kyouya', 2692, 1558, 486, TRUE, 'Human', '001', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1888', 'Yunyun', 2710, 1542, 483, FALSE, 'Human', '003', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1889', 'Chris', 2914, 1352, 537, FALSE, 'Human', '002', '1882');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1890', 'Vanir', 1803, 2187, 445, TRUE, 'Demon', '001', NULL);
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1891', 'Beldia', 1608, 2425, 378, TRUE, 'Demon', '004', '1890');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1892', 'Destroyer', 4366, 1545, 114, TRUE, 'Machina', '003', '1890');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1893', 'Luna', 2771, 1463, 522, FALSE, 'Human', '004', '1890');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1894', 'Eris', 2624, 1520, 358, FALSE, 'God', '002', '1890');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1895', 'WinterShogun', 1180, 1793, 371, TRUE, 'Demon', '002', '1890');
+INSERT INTO konosuba (card_id_, name_, hp_, atk_, rec_, sex_, race_, skill_id_, parent_)VALUES ('1896', 'LizardRunner', 2887, 1281, 168, TRUE, 'Beast', '001', '1890');
 
 INSERT INTO card_skill_ VALUES ('1882', '001');
 INSERT INTO card_skill_ VALUES ('1882', '002');
