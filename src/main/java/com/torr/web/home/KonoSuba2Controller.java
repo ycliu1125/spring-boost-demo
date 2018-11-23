@@ -10,7 +10,14 @@ public class KonoSuba2Controller {
 
     @RequestMapping("/index")
     public String konosuba2(){
-
         return "index.html";
     }
+
+    //維護介面
+    @RequestMapping("/maintain")
+    public String maintain(){
+        return "maintain.html";
+    }
+
+
 }

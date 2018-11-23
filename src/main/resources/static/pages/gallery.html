@@ -85,39 +85,10 @@ Licence URI: http://www.os-templates.com/template-terms
         <figure>
           <header class="heading">KonoSuba Cards</header>
           <ul id="cards" class="nospace clear">
-            <li class="one_quarter first"><a href="#"><img src="https://goo.gl/irV27s" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/hfxVYF" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/QoeCjr" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/bRkiEK" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="https://goo.gl/Gj2tdQ" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/SqBHAa" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/MURB9w" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/kjPge9" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="https://goo.gl/rL2NnV" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/tgGWV7" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/zhM8Uk" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/ZqR8zU" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="https://goo.gl/99rZMz" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/THKVyK" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="https://goo.gl/z8s4Ba" alt=""></a></li>
+
           </ul>
         </figure>
       </div>
-      <!--
-      <script>
-          $(function () {
-              $.getJSON('/rest/card', function (data) {
-                  console.log(data);
-                  data.forEach(function (value) {
-
-                      let imgid = '#' + value.name;
-                      $('#cards').append(`<li class="one_quarter first"><a href="#"><img id="${value.name}" alt=""></a></li>`);
-                      $(imgid).attr("src", `${value.headPicLink}`);
-
-                  });
-              });
-          });
-      </script> -->
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->
       <nav class="pagination">
@@ -152,6 +123,28 @@ Licence URI: http://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
+<script src="/js/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $.getJSON('/rest/card', function (data) {
+            console.log(data);
+            data.forEach(function (value) {
+
+                let imgid = '#' + value.name;
+                let firstPic = value.cardId;
+                if ( firstPic %4 == 2 ){
+                    $('#cards').append(`<li class="one_quarter first"><a href="#"><img id="${value.name}" alt=""></a></li>`);
+                    $(imgid).attr("src", `${value.headPicLink}`);
+                }else {
+                    $('#cards').append(`<li class="one_quarter"><a href="#"><img id="${value.name}" alt=""></a></li>`);
+                    $(imgid).attr("src", `${value.headPicLink}`);
+                }
+
+
+            });
+        });
+    });
+</script>
 <script src="../layout/scripts/jquery.min.js"></script>
 <script src="../layout/scripts/jquery.backtotop.js"></script>
 <script src="../layout/scripts/jquery.mobilemenu.js"></script>
