@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maintain Interface</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!--查詢畫面-->
+<div class="container">
+    <h2>KonoSuba Maintain Interface</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">新增</button>
+    <button type="button" class="btn btn-info btn-lg">查詢</button>
+    <input type="text" id="conditionslike-name" name="conditions[like-name]" value class="form-control ">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create new Card</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="card-input">
+                        <p>要在這裡載入 card-input.html</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--顯示畫面-->
+<div style="clear: both; margin: 5px 40px;">
+    <div class="card">
+        <table border="1" id="content" class="table"></table>
+    </div>
+</div>
+
+<button type="button"><a href="../index.html" style="text-decoration: none">回首頁</a></button>
+<script>
+    $(function () {
+        $.getJSON('/rest/card', function (data) {
+            console.log(data);
+            $('#content').append(`<tr><th>CardID</th><th>Name</th><th>HP</th><th>Atk</th><th>Rex</th><th>Sex</th><th>Race</th><th>Skill</th><th>Parent</th></tr>'`);
+            data.forEach(function (value) {
+                let parent = '', sex = '';
+                if (value.parent) {
+                    parent = value.parent.name;
+                }
+                if (value.sex) {
+                    sex = 'Male';
+                } else {
+                    sex = 'Female';
+                }
+                $('#content').append(`<tr><td>${value.cardId}</td><td>${value.name}</td><td>${value.hp}</td><td>${value.atk}</td><td>${value.rec}</td><td>${sex}</td><td>${value.race}</td><td>${value.skill.name}</td><td>${parent}</td></tr>`);
+            });
+        });
+    });
+</script>
+</body>
+</html>
